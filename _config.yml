@@ -1,0 +1,16 @@
+title: Jones Calendar
+description: Calendario privato di Gabriel Jones
+lang: it
+timezone: Europe/Rome
+markdown: kramdown
+exclude:
+  - README.md
+  - netlify
+  - netlify.toml
+  - package.json
+  - package-lock.json
+  - node_modules
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .env.example

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>{% if page.url != "/" %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/portal.css">
+  <link rel="stylesheet" href="/assets/css/calendar.css">
+  <link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials">
+  <meta name="theme-color" content="#101c4d">
+</head>
+<body>
+  {% include header.html %}
+  {% unless page.nohero %}
+  <section class="hero{% if page.compact %} compact{% endif %}">
+    <div class="wrap">
+      {% if page.kicker %}<p class="kicker">{{ page.kicker }}</p>{% endif %}
+      <h1 id="page-title">{{ page.title }}</h1>
+      {% if page.lead %}<p class="lead">{{ page.lead }}</p>{% endif %}
+    </div>
+  </section>
+  {% endunless %}
+  <main class="wrap{% if page.wide %} wide{% endif %}">
+    {{ content }}
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>Jones Calendar · calendario privato di Gabriel Jones</span>
+      <span class="sp"></span>
+      <span class="muted-light">calendar.joneshouse.it</span>
+    </div>
+  </footer>
+  <script src="/assets/js/core.js"></script>
+  {% for s in page.scripts %}<script src="/assets/js/{{ s }}.js"></script>{% endfor %}
+  {% if page.script %}<script src="/assets/js/{{ page.script }}.js"></script>{% endif %}
+</body>
+</html>
